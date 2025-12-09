@@ -9,9 +9,9 @@ BharaBari is a Rental Home Service website built to enhance the online communica
 
 
 ## Tech-Stack 
-> Frontend: HTML, CSS </br>
-> Database: Supabase / Firebase Firestone </br>
-> Back-end: Javascript
+> Frontend: HTML, CSS, JavaScript </br>
+> Database: Supabase </br>
+> Back-end: Javascript, Node.js
 
 
 ### 
