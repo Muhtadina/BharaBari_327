@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Appointment</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Create Appointment</h2>
+    <form onsubmit="createAppointment(event)">
+        <input id="flatId" placeholder="Flat ID" required>
+        <input id="date" type="date" required>
+        <input id="time" type="time" required>
+        <button type="submit">Create Appointment</button>
+    </form>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/appointments.js"></script>
+</body>
+</html>
