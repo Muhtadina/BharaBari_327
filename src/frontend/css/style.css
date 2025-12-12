@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: Arial;
     background: #f4f4f4;
+    overflow-x: hidden;
 }
 
 .container {
@@ -23,4 +24,116 @@ input, button {
     padding: 15px;
     margin: 10px 0;
     border-radius: 6px;
+}
+
+/* ----------------------------------- */ 
+
+.container h1{
+    font-family: "Jockey One", sans-serif;
+    color: #00687a;
+    font-size: 80px;
+    padding: 0;
+    margin-bottom: 0;
+    text-shadow:
+    -1px 0 aliceblue,  /* Left shadow */
+    0 1px aliceblue,   /* Bottom shadow */
+    1px 0 aliceblue,   /* Right shadow */
+    0 -1px aliceblue;  /* Top shadow */
+
+   
+}
+
+.container h2{
+    font-family: "Barriecito", system-ui;
+    font-size: 20px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: 10px;
+    color: black;
+}
+
+header {
+    width: 100%;
+    padding: 10px 1%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #00687a7a; 
+}
+
+.logo-slot{
+    display: inline-flex;
+    width: 40%;
+    justify-content: start;
+    align-items: center;
+    justify-items: start;
+    align-content: center;
+    padding: 0;
+
+}
+.logo-slot img {
+    height: 60px;
+    padding-right: 10px;
+}
+.logo-slot p{
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    padding: 0;
+}
+
+nav{
+    width: 50%;
+    margin-left: 2%;
+
+    display: block;
+    
+    align-items: center;
+    justify-items: end;
+    align-content: center;
+
+    justify-content: space-evenly;
+}
+nav a {
+    margin-left: 11px;
+    margin-right: 11px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: white;
+    transition: 0.8s;
+}
+
+nav a:hover {
+    color: whitesmoke;
+    font-weight: 700;
+    text-decoration: underline;
+    
+}
+
+.btn-highlight {
+    padding: 7px 14px;
+    background: #98e5f3;
+    border-radius: 3px;
+    color: #00687a !important;
+}
+
+.btn-highlight:hover{
+    background: aliceblue;
+    text-decoration: none;
+}
+
+footer {
+    margin-top: 60px;
+    padding: 14px;
+    text-align: center;
+    background: #00687a;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: 700;
 }
