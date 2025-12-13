@@ -26,16 +26,24 @@ body::before {
     z-index: -1;
 }
 </style>
+<script src="https://kit.fontawesome.com/0075d4625e.js" crossorigin="anonymous"></script>
 </head>
 <body class="face">
 <div class="container2">
     <img src="img/BharaBari_white_logo.png" height="200px" width="200px" alt="Bhara Bari">
     <h2>Create Account</h2>
     <form onsubmit="registerUser(event)">
-        <input id="username" placeholder="Username" required>
         <input id="fullName" placeholder="Full Name" required>
         <input id="email" placeholder="Email" type="email" required>
         <input id="password" placeholder="Password" type="password" required>
+        <div class="inline_selection">
+        <select id="role" name="role">
+          <option value="#" disabled selected>Select Account Type <i class="fa-solid fa-circle-chevron-down"></i></option>
+          <option value="renter">Renter</option>
+          <option value="landlord">Landlord</option>
+        </select>
+      </br></br>
+        </div>
         <button class="account" type="submit">Register</button>
     </form>
     <p>Already have an Account? <a href="login.html">Login</a></p>
@@ -68,7 +76,7 @@ body::before {
 </script>
 
 <footer>
-    © 2025 BharaBari — Rental Home Service
+    © 2025 BharaBari — Rental Home Service • developed by Muhtadina Serniabat Tasin
 </footer>
 </body>
 </html>

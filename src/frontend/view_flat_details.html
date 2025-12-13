@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Flats Details</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/BharaBari_org_logo.png" type="x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: 100%, 600px;
   background-attachment: fixed;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(4px);
 }
 </style>
 <script src="https://kit.fontawesome.com/0075d4625e.js" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@ body {
 <body>
     <header>
         <div class="logo-slot">
-            <img src="img/BharaBari_white_logo.png" alt="Bhara Bari">
+            <a href="index.html"><img src="img/BharaBari_white_logo.png" alt="Bhara Bari"></a>
             <p>BHARA BARI</p>
         </div>
 
@@ -29,20 +29,20 @@ body {
             <a href="index.html">Home</a>
             <a href="flats.html">To-Lets</a>
             <a href="#">Policy</a>
-            <button class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
-            <button class="logout"><i class="fa-solid fa-user"></i></button>
+            <a href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            <a href="register.html" class="btn-highlight">Sign up as Renter</a>
         </nav>
     </header>
-
-<div class="container2">
-    <h2>Dashboard</h2>
+<div class="container">
+    <img src="img/bg.jpg" alt="flat_img" width="550px" height="320px" style="border-radius: 7px; border: solid 2px #060606;">
+    <h2>Building_Name</h2>
     <hr class="my-line">
-    <div class="btn_align">
-        <button class="dash_btn">To-Let Ads History</button>
-        <button class="dash_btn">Negotiation History</button>
-        <button class="dash_btn">Appointment History</button>
+    <div class="details">
     </div>
 </div>
+
+<script src="js/api.js"></script>
+<script src="js/flats.js"></script>
     <footer>
         © 2025 BharaBari — Rental Home Service • developed by Muhtadina Serniabat Tasin
     </footer>

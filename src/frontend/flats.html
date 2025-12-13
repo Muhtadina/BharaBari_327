@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flats</title>
+    <title>To-Let Flats</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/BharaBari_org_logo.png" type="x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,18 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Antic&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barriecito&family=Bitcount+Grid+Single:wght@100..900&family=Bitcount+Prop+Double:wght@100..900&family=Changa:wght@200..800&family=Chewy&family=Cinzel:wght@400..900&family=Comfortaa:wght@300..700&family=Comic+Relief:wght@400;700&family=Freckle+Face&family=Gluten:wght@100..900&family=Grenze+Gotisch:wght@100..900&family=Jockey+One&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marck+Script&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,300..900;1,300..900&family=Silkscreen:wght@400;700&family=Special+Gothic+Expanded+One&family=Syne+Mono&family=The+Girl+Next+Door&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
 <style>
 body {
-    background-image: url('img/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%, 600px;
-    background-attachment: fixed;
-    backdrop-filter: blur(4px);
+  background-image: url('img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%, 600px;
+  background-attachment: fixed;
+  backdrop-filter: blur(4px);
 }
 </style>
+<script src="https://kit.fontawesome.com/0075d4625e.js" crossorigin="anonymous"></script>
 </head>
 <body onload="loadFlats()">
     <header>
         <div class="logo-slot">
-            <img src="img/BharaBari_white_logo.png" alt="Bhara Bari">
+            <a href="index.html"><img src="img/BharaBari_white_logo.png" alt="Bhara Bari"></a>
             <p>BHARA BARI</p>
         </div>
 
@@ -28,14 +29,79 @@ body {
             <a href="index.html">Home</a>
             <a href="flats.html">To-Lets</a>
             <a href="#">Policy</a>
+            <a href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            <a href="register.html" class="btn-highlight">Sign up as Renter</a>
         </nav>
     </header>
 <div class="container">
     <h2>Available Flats</h2>
-    <div id="flat-list"></div>
+    <hr class="my-line">
+    <div class="inline_selection">
+        <select id="location" name="division">
+          <option value="#" disabled selected>Filter by Division</option>
+          <option value="all">All</option>
+          <option value="dhaka">Dhaka</option>
+          <option value="rajshahi">Rajshahi</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="kumilla">Kumilla</option>
+          <option value="sylhet">Sylhet</option>
+          <option value="barishal">Barishal</option>
+        </select>
+        <select id="room_count" name="rooms">
+          <option value="#" disabled selected>Filter by Room Counts</option>
+          <option value="all">All</option>
+          <option value="five">5</option>
+          <option value="four">4</option>
+          <option value="three">3</option>
+          <option value="two">2</option>
+        </select>
+        <select id="rent" name="range">
+          <option value="#" disabled selected>Filter by Rental</option>
+          <option value="all">All</option>
+          <option value="twenty_thousand">15,000 - 20,000 BDT</option>
+          <option value="thirty_thousand">21,000 - 30,000 BDT</option>
+          <option value="forty_thousand">31,000 - 40,000 BDT</option>
+        </select>
+        <select id="catagory" name="type">
+          <option value="#" disabled selected>Filter by Catagory</option>
+          <option value="all">All</option>
+          <option value="family">Family Home</option>
+          <option value="bachelor">Bachelor House</option>
+        </select>
+    </div>
+    <div class="flat-list">
+        <div class="flat-card">
+            <img src="img/bg.jpg" alt="flat_img" width="230px" height="120px" style="border-radius: 7px; border: solid 1px #060606;">
+            <h3><i class="fa-solid fa-circle-check" style="color: green;"></i> Building_Name:</h3>
+            <hr class="my-line">
+            <p> Location, Division </br>
+                Room Count • Bath Count • Balcony Include </br>
+                Floor/Level • Category </br>
+                Gas included • Separate meter </br>
+                rentPerMonth </br>
+                Like_Count </p>
+            <button class="card_btn" onclick="location.href='view_flat_details.html'">View Appartment</button>
+        </div>
+        <div class="flat-card">
+            <img src="#" alt="flat_img">
+            <h3><i class="fa-solid fa-circle-exclamation" style="color: orange;"></i> Building_Name:</h3>
+            <hr class="my-line">
+            <p> Location, Division </br>
+                Room Count • Bath Count • Balcony Include </br>
+                Floor/Level • Category </br>
+                Gas included • Separate meter </br>
+                rentPerMonth </br>
+                Like_Count </p>
+            <button class="card_btn" onclick="location.href='view_flat_details.html'">View Appartment</button>
+        </div>
+        
+    </div>
 </div>
 
 <script src="js/api.js"></script>
 <script src="js/flats.js"></script>
+    <footer>
+        © 2025 BharaBari — Rental Home Service • developed by Muhtadina Serniabat Tasin
+    </footer>
 </body>
 </html>
