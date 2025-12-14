@@ -5,14 +5,14 @@
 
 CREATE TABLE base_users (
     user_id          BIGSERIAL PRIMARY KEY,
-    username         VARCHAR(50) NOT NULL UNIQUE,
+    username         VARCHAR(50) UNIQUE, --username will be customised by js through register
     full_name        VARCHAR(100) NOT NULL,
     email            VARCHAR(150) NOT NULL UNIQUE,
     password_hash    VARCHAR(255) NOT NULL,
     contact_number   VARCHAR(20),
-    address          TEXT,
+    present_address  TEXT,
     nid              VARCHAR(20),
-    role             VARCHAR(20) NOT NULL CHECK (role IN ('renter', 'landlord', 'admin')),
+    account_type     VARCHAR(20) NOT NULL CHECK (account_type IN ('renter', 'landlord')),
     created_at       TIMESTAMP DEFAULT NOW()
 );
 
@@ -21,8 +21,7 @@ CREATE TABLE base_users (
 -- ===========================================================
 
 CREATE TABLE renters (
-    renter_id BIGINT PRIMARY KEY REFERENCES base_users(user_id) ON DELETE CASCADE,
-    payment_medium VARCHAR(50)
+    renter_id BIGINT PRIMARY KEY REFERENCES base_users(user_id) ON DELETE CASCADE
 );
 
 -- ===========================================================
@@ -30,8 +29,8 @@ CREATE TABLE renters (
 -- ===========================================================
 
 CREATE TABLE landlords (
-    landlord_id BIGINT PRIMARY KEY REFERENCES base_users(user_id) ON DELETE CASCADE,
-    payment_method VARCHAR(50)
+    landlord_id   BIGINT PRIMARY KEY REFERENCES base_users(user_id) ON DELETE CASCADE,
+    bank_account  VARCHAR(20) UNIQUE
 );
 
 -- ===========================================================
@@ -39,8 +38,9 @@ CREATE TABLE landlords (
 -- ===========================================================
 
 CREATE TABLE admins (
-    admin_id BIGINT PRIMARY KEY REFERENCES base_users(user_id) ON DELETE CASCADE,
-    admin_level VARCHAR(20) DEFAULT 'standard'
+    admin_id         BIGSERIAL PRIMARY KEY,
+    username         VARCHAR(50) NOT NULL UNIQUE,
+    password_hash    VARCHAR(255) NOT NULL
 );
 
 -- ===========================================================
@@ -50,12 +50,18 @@ CREATE TABLE admins (
 CREATE TABLE flats (
     flat_id        BIGSERIAL PRIMARY KEY,
     landlord_id    BIGINT NOT NULL REFERENCES landlords(landlord_id) ON DELETE CASCADE,
-    title          VARCHAR(150) NOT NULL,
-    description    TEXT,
-    location       VARCHAR(150) NOT NULL,
-    rent_amount    NUMERIC(10,2) NOT NULL,
-    rooms          INT,
-    status         VARCHAR(20) DEFAULT 'available' CHECK (status IN ('available','reserved','taken')),
+    building       VARCHAR(150) NOT NULL,
+    details        TEXT,
+    location_      VARCHAR(150) NOT NULL,
+    floor_level    VARCHAR(20) NOT NULL,
+    catagory       VARCHAR(20) DEFAULT 'family' CHECK (status IN ('family','bachelor','office')),
+    rentpermonth   NUMERIC(10,2) NOT NULL,
+    room_count     INT,
+    gas_bill       NUMERIC(10,2) NOT NULL,
+    water_bill     VARCHAR(20) DEFAULT 'excluded' CHECK (status IN ('included','excluded')),
+    current_bill   VARCHAR(20) DEFAULT 'excluded' CHECK (status IN ('included','excluded')),
+    flat_status    VARCHAR(20) DEFAULT 'available' CHECK (status IN ('available','occupied')),
+    flat_verify    VARCHAR(20) DEFAULT 'verified' CHECK (status IN ('verified','pending','corrupted')),
     created_at     TIMESTAMP DEFAULT NOW()
 );
 
@@ -66,7 +72,8 @@ CREATE TABLE flats (
 CREATE TABLE flat_images (
     image_id   BIGSERIAL PRIMARY KEY,
     flat_id    BIGINT REFERENCES flats(flat_id) ON DELETE CASCADE,
-    image_url  TEXT NOT NULL
+    image_url  TEXT NOT NULL,
+    doc_url    TEXT NOT NULL --> legal papers 
 );
 
 -- ===========================================================
