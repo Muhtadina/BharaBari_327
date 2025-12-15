@@ -4,52 +4,61 @@ import UserFactory from "../factories/UserFactory.js";
 class UserService {
   static async register(data) {
     const client = supabase.getClient();
+    const { full_name, email, password, account_type } = data;
 
-    const { username, email, password, role } = data;
+    // Insert temporary row to get user_id
+    const { data: tempUser, error: tempError } = await client
+      .from("base_users")
+      .insert({ full_name, email, password_hash: password, account_type })
+      .select("user_id")
+      .single();
 
-    const userObj = UserFactory.createUser(role, data);
+    if (tempError) throw new Error(tempError.message);
 
-    const { error } = await client.from("base_users").insert({
-      username,
-      full_name: data.full_name,
-      email,
-      password_hash: password,
-      role,
+    // Generate username using UserFactory
+    const userObj = UserFactory.createUser(account_type, {
+      ...data,
+      user_id: tempUser.user_id
     });
 
-    if (error) throw new Error(error.message);
+    // Update the row with generated username
+    const { error: updateError } = await client
+      .from("base_users")
+      .update({ username: userObj.username })
+      .eq("user_id", tempUser.user_id);
 
-    return { message: "Registration successful" };
+    if (updateError) throw new Error(updateError.message);
+
+    return { message: "Registration successful", username: userObj.username };
   }
 
   static async login({ username, password }) {
     const client = supabase.getClient();
 
-    const { data, error } = await client
+    // Check base_users first
+    let { data, error } = await client
       .from("base_users")
       .select("*")
       .eq("username", username)
       .single();
 
-    if (error) throw new Error("User not found");
-    if (data.password_hash !== password)
-      throw new Error("Invalid credentials");
+    // If not found in base_users, check admins
+    if (error) {
+      ({ data, error } = await client
+        .from("admins")
+        .select("*")
+        .eq("username", username)
+        .single());
 
-    return data;
-  }
+      if (error) throw new Error("User not found");
 
-  static async getProfile(id) {
-    const client = supabase.getClient();
+      if (data.password_hash !== password) throw new Error("Invalid credentials");
+      data.role = "admin";
+      return data;
+    }
 
-    const { data, error } = await client
-      .from("base_users")
-      .select("*")
-      .eq("user_id", id)
-      .single();
-
-    if (error) throw new Error("User not found");
-
-    return data;
+    if (data.password_hash !== password) throw new Error("Invalid credentials");
+    return data; // includes account_type
   }
 }
 

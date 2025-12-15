@@ -1,15 +1,24 @@
 // Factory -> UserFactory.js
 import Renter from "../models/Renter.js";
 import Landlord from "../models/Landlord.js";
-import Admin from "../models/Admin.js";
 
 export default class UserFactory {
-  static createUser(role, data) {
-    switch (role) {
-      case "renter": return new Renter(data);
-      case "landlord": return new Landlord(data);
-      case "admin": return new Admin(data);
-      default: throw new Error("Unknown role");
+  static createUser(account_type, data) {
+    const { full_name, user_id } = data;
+
+    // Generate username: First letter of account_type (capital) + 3-digit user_id + first3+last2 letters of full_name
+    const prefix = account_type.charAt(0).toUpperCase();
+    const idStr = String(user_id).padStart(3, "0");
+    const namePart = (full_name.slice(0,3) + full_name.slice(-2)).toLowerCase();
+    const username = prefix + idStr + namePart;
+
+    switch (account_type) {
+      case "renter":
+        return new Renter({ ...data, username });
+      case "landlord":
+        return new Landlord({ ...data, username });
+      default:
+        throw new Error("Unsupported user type");
     }
   }
 }

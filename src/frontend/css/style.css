@@ -317,9 +317,7 @@ nav a {
 }
 
 nav a:hover {
-    color: whitesmoke;
-    font-weight: 700;
-    text-decoration: underline;
+    color: black;
     
 }
 

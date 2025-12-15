@@ -1,82 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register</title>
+    <meta charset="UTF-8">
+    <title>Register | BharaBari</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/BharaBari_org_logo.png" type="x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Antic&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barriecito&family=Bitcount+Grid+Single:wght@100..900&family=Bitcount+Prop+Double:wght@100..900&family=Changa:wght@200..800&family=Chewy&family=Cinzel:wght@400..900&family=Comfortaa:wght@300..700&family=Comic+Relief:wght@400;700&family=Freckle+Face&family=Gluten:wght@100..900&family=Grenze+Gotisch:wght@100..900&family=Jockey+One&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marck+Script&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,300..900;1,300..900&family=Silkscreen:wght@400;700&family=Special+Gothic+Expanded+One&family=Syne+Mono&family=The+Girl+Next+Door&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
-<style>
-body {
-    position: relative;
-    margin: 0;
-    min-height: 100vh;
-}
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url('img/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 600px;
-    background-attachment: fixed;
-    filter: blur(4px);
-    opacity: 0.5;   
-    z-index: -1;
-}
-</style>
-<script src="https://kit.fontawesome.com/0075d4625e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Antic&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barriecito&family=Bitcount+Grid+Single:wght@100..900&family=Bitcount+Prop+Double:wght@100..900&family=Changa:wght@200..800&family=Chewy&family=Cinzel:wght@400..900&family=Comfortaa:wght@300..700&family=Comic+Relief:wght@400;700&family=Freckle+Face&family=Gluten:wght@100..900&family=Grenze+Gotisch:wght@100..900&family=Jockey+One&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marck+Script&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,300..900;1,300..900&family=Silkscreen:wght@400;700&family=Special+Gothic+Expanded+One&family=Syne+Mono&family=The+Girl+Next+Door&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0075d4625e.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('img/bg.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 600px;
+            background-attachment: fixed;
+            filter: blur(4px);
+            opacity: 0.5;   
+            z-index: -1;
+        }
+    </style>
 </head>
 <body class="face">
+
 <div class="container2">
     <img src="img/BharaBari_white_logo.png" height="200px" width="200px" alt="Bhara Bari">
     <h2>Create Account</h2>
-    <form onsubmit="registerUser(event)">
-        <input id="fullName" placeholder="Full Name" required>
-        <input id="email" placeholder="Email" type="email" required>
-        <input id="password" placeholder="Password" type="password" required>
+    
+    <!-- Add id for JS reference -->
+    <form id="registerForm" onsubmit="registerUser(event)">
+        <input id="fullName" name="full_name" placeholder="Full Name" required>
+        <input id="email" name="email" placeholder="Email" type="email" required>
+        <input id="password" name="password" placeholder="Password" type="password" required>
+
         <div class="inline_selection">
-        <select id="role" name="role">
-          <option value="#" disabled selected>Select Account Type <i class="fa-solid fa-circle-chevron-down"></i></option>
-          <option value="renter">Renter</option>
-          <option value="landlord">Landlord</option>
-        </select>
-      </br></br>
+            <select id="accountType" name="account_type" required>
+                <option value="" disabled selected>Select Account Type</option>
+                <option value="renter">Renter</option>
+                <option value="landlord">Landlord</option>
+            </select>
         </div>
+        <br><br>
         <button class="account" type="submit">Register</button>
     </form>
+
     <p>Already have an Account? <a href="login.html">Login</a></p>
 </div>
 
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
-<script>
-  const form = document.getElementById("registerForm");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-
-    const res = await fetch("/routes/users/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    const result = await res.json();
-    if (res.ok) {
-      alert("Registered successfully!");
-    } else {
-      alert("Error: " + result.message);
-    }
-  });
-</script>
+<!-- Include JS modules in correct order -->
+<script type="module" src="js/api.js"></script>
+<script type="module" src="js/auth.js"></script>
 
 <footer>
     © 2025 BharaBari — Rental Home Service • developed by Muhtadina Serniabat Tasin
 </footer>
+
 </body>
 </html>

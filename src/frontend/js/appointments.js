@@ -7,7 +7,7 @@ async function loadAppointments() {
         const div = document.createElement("div");
         div.className = "flat-card";
         div.innerHTML = `
-            <h3>Flat ID: ${a.flatid}</h3>
+            <h3>Negotiation ID: ${a.negotiationid}</h3>
             <p>Date: ${a.date}</p>
             <p>Time: ${a.time}</p>
             <p>Renter ID: ${a.renterid}</p>
@@ -21,12 +21,12 @@ async function loadAppointments() {
 async function createAppointment(event) {
     event.preventDefault();
 
-    const flatId = document.getElementById("flatId").value;
+    const negotiationid = document.getElementById("negotiationid").value;
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
 
     const res = await apiRequest("/appointments/create", "POST", {
-        flatId, date, time
+        negotiationid, date, time
     });
 
     alert(res.message || "Appointment created.");

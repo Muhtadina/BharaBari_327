@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Login | BharaBari</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/BharaBari_org_logo.png" type="x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Antic&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barriecito&family=Bitcount+Grid+Single:wght@100..900&family=Bitcount+Prop+Double:wght@100..900&family=Changa:wght@200..800&family=Chewy&family=Cinzel:wght@400..900&family=Comfortaa:wght@300..700&family=Comic+Relief:wght@400;700&family=Freckle+Face&family=Gluten:wght@100..900&family=Grenze+Gotisch:wght@100..900&family=Jockey+One&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marck+Script&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,300..900;1,300..900&family=Silkscreen:wght@400;700&family=Special+Gothic+Expanded+One&family=Syne+Mono&family=The+Girl+Next+Door&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
-<style>
-body {
-    position: relative;
-    margin: 0;
-    min-height: 100vh;
-}
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url('img/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 600px;
-    background-attachment: fixed;
-    filter: blur(4px);
-    opacity: 0.5;   
-    z-index: -1;
-}
-</style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Antic&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barriecito&family=Bitcount+Grid+Single:wght@100..900&family=Bitcount+Prop+Double:wght@100..900&family=Changa:wght@200..800&family=Chewy&family=Cinzel:wght@400..900&family=Comfortaa:wght@300..700&family=Comic+Relief:wght@400;700&family=Freckle+Face&family=Gluten:wght@100..900&family=Grenze+Gotisch:wght@100..900&family=Jockey+One&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marck+Script&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,300..900;1,300..900&family=Silkscreen:wght@400;700&family=Special+Gothic+Expanded+One&family=Syne+Mono&family=The+Girl+Next+Door&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('img/bg.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 600px;
+            background-attachment: fixed;
+            filter: blur(4px);
+            opacity: 0.5;   
+            z-index: -1;
+        }
+    </style>
 </head>
-<body>
+<body class="face">
+
 <div class="container2">
     <img src="img/BharaBari_white_logo.png" height="170px" width="170px" alt="Bhara Bari">
     <h2>Welcome Back!</h2>
-    <form onsubmit="loginUser(event)">
-        <input id="username" placeholder="Username" required>
-        <input id="password" placeholder="Password" type="password" required>
+    
+    <!-- Add id for JS reference -->
+    <form id="loginForm" onsubmit="loginUser(event)">
+        <input id="username" name="username" placeholder="Username" required>
+        <input id="password" name="password" type="password" placeholder="Password" required>
         <button class="account" type="submit">Login</button>
     </form>
+
     <p>Don't have an Account? <a href="register.html">Create an Account</a></p>
 </div>
+
 <footer>
     © 2025 BharaBari — Rental Home Service • developed by Muhtadina Serniabat Tasin
 </footer>
 
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
+<!-- Include JS modules -->
+<script type="module" src="js/api.js"></script>
+<script type="module" src="js/auth.js"></script>
+
 </body>
 </html>
