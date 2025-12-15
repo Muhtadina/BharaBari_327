@@ -136,4 +136,7 @@ CREATE TABLE reports (
 
 CREATE INDEX idx_users_role ON base_users(account_type);
 CREATE INDEX idx_flats_location ON flats(division);
+CREATE INDEX idx_flats_rental ON flats(rentpermonth);
+CREATE INDEX idx_flats_room ON flats(room_count);
+CREATE INDEX idx_flats_catagory ON flats(catagory);
 CREATE INDEX idx_negotiation_status ON negotiations(nego_status);
