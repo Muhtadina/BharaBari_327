@@ -1,6 +1,6 @@
 -- ===========================================================
 -- 1. Base Users Table
--- (All users: Renter, Landlord, Admin)
+-- (All users: Renter, Landlord)
 -- ===========================================================
 
 CREATE TABLE base_users (
@@ -55,14 +55,14 @@ CREATE TABLE flats (
     location_      VARCHAR(150) NOT NULL,
     division       VARCHAR(150) NOT NULL,
     floor_level    VARCHAR(20) NOT NULL,
-    catagory       VARCHAR(20) DEFAULT 'family' CHECK (status IN ('family','bachelor','office')),
+    catagory       VARCHAR(20) DEFAULT 'family' CHECK (catagory IN ('family','bachelor','office')),
     rentpermonth   NUMERIC(10,2) NOT NULL,
     room_count     INT,
     gas_bill       NUMERIC(10,2) NOT NULL,
-    water_bill     VARCHAR(20) DEFAULT 'excluded' CHECK (status IN ('included','excluded')),
-    current_bill   VARCHAR(20) DEFAULT 'excluded' CHECK (status IN ('included','excluded')),
-    flat_status    VARCHAR(20) DEFAULT 'available' CHECK (status IN ('available','occupied')),
-    flat_verify    VARCHAR(20) DEFAULT 'verified' CHECK (status IN ('verified','pending','corrupted')),
+    water_bill     VARCHAR(20) DEFAULT 'excluded' CHECK (water_bill IN ('included','excluded')),
+    current_bill   VARCHAR(20) DEFAULT 'excluded' CHECK (current_bill IN ('included','excluded')),
+    flat_status    VARCHAR(20) DEFAULT 'available' CHECK (flat_status IN ('available','occupied')),
+    flat_verify    VARCHAR(20) DEFAULT 'verified' CHECK (flat_verify IN ('verified','pending','corrupted')),
     created_at     TIMESTAMP DEFAULT NOW()
 );
 
@@ -101,7 +101,7 @@ CREATE TABLE negotiations (
     proposed_rent   NUMERIC(10,2),
     comment         TEXT,
     nego_status     VARCHAR(20) DEFAULT 'pending' 
-                     CHECK (status IN ('pending','approved','rejected')),
+                     CHECK (nego_status IN ('pending','approved','rejected')),
     created_at      TIMESTAMP DEFAULT NOW()
 );
 
