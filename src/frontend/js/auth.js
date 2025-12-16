@@ -1,3 +1,4 @@
+// auth.js (frontend)
 import { apiRequest } from "./api.js";
 
 export async function registerUser(event) {
@@ -17,12 +18,8 @@ export async function registerUser(event) {
 
   if (res.username) {
     alert(`Registered successfully! Your username: ${res.username}`);
-    // Redirect immediately based on account_type
-    if (accountType === "renter") {
-        window.location.href = "dashboard.html";
-    } else if (accountType === "landlord") {
-        window.location.href = "landlord_dashboard.html";
-    }
+    if (accountType === "renter") window.location.href = "dashboard.html";
+    else if (accountType === "landlord") window.location.href = "landlord_dashboard.html";
   } else {
     alert("Registration failed: " + (res.error || "Unknown error"));
   }

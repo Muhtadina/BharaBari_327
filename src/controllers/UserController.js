@@ -1,6 +1,7 @@
 import UserService from "../services/UserService.js";
 
 export const registerUser = async (req, res) => {
+  console.log("REGISTER HIT", req.body);
   try {
     const result = await UserService.register(req.body);
     res.status(201).json(result);
