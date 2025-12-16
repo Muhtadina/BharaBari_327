@@ -8,3 +8,4 @@ router.get("/", getAllFlats);
 router.get("/:flatId", getFlatById);
 
 export default router;
+

@@ -6,9 +6,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import userRoutes from "./routes/userRoutes.js";
-import flatRoutes from "./routes/flatRoutes.js";
+// import flatRoutes from "./routes/flatRoutes.js";
 import negotiationRoutes from "./routes/negotiationRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
+import flatRoutes from "./routes/flats.js";
 
 dotenv.config();
 const app = express();
@@ -28,6 +29,8 @@ app.use("/routes/users", userRoutes);
 app.use("/routes/flats", flatRoutes);
 app.use("/routes/negotiations", negotiationRoutes);
 app.use("/routes/appointments", appointmentRoutes);
+app.use("/routes/flats", flatRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
